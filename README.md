@@ -1,24 +1,28 @@
 # 2016-site #
 
 ## How to install ##
+Configuration for site is located in config.toml, and you'll need a
+[MyRadio](https://github.com/UniversityRadioYork/MyRadio) API key with the
+requisite permissions copied into a .myradio.key file in the same directory.
 
-### Development ###
+Then follow the Requirements below.
 
-#### Requirements ####
+## Requirements ##
+Requires [Go 1.6](https://golang.org/) to compile and run, along with `sassc` to
+compile the SCSS files. You may use other SASS compilers if you wish, but be
+prepared for unexpected results.
 
-You will need the following things installed:
- - [NodeJs](https://nodejs.org/en/ "NodeJs")
- - [Go](https://golang.org/ "Go")
- 
- Navigate to `GOPATH`
+Alternatively, you can use Docker alone
+
+## Running the site ##
+
+### Without Docker ###
 ```bash
-$ git clone 
-$ cd 2016-site/
-$ npm install -g grunt-cli bower
-$ npm install
-$ bower install
-$ go get 
-$ grunt build
-$ go build # This will create an executable in the cwd
-$ 2016-site[.exe]
+$ make run # Builds scss files, and runs the server
+```
+
+### With Docker :whale: ###
+```bash
+$ make build-docker-image #Builds the image, will only have to be re-run if you change the Dockerfile
+$ make docker #Runs the image
 ```
